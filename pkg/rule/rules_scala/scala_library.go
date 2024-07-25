@@ -20,11 +20,9 @@ import (
 
 const (
 	GrpcscalaLibraryRuleName        = "grpc_scala_library"
-	GrpcZioscalaLibraryRuleName     = "grpc_zio_scala_library"
 	ProtoscalaLibraryRuleName       = "proto_scala_library"
 	protoScalaLibraryRuleSuffix     = "_proto_scala_library"
 	grpcScalaLibraryRuleSuffix      = "_grpc_scala_library"
-	grpcZioScalaLibraryRuleSuffix   = "_grpc_zio_scala_library"
 	scalaPbPluginOptionsPrivateKey  = "_scalapb_plugin"
 	akkaGrpcPluginOptionsPrivateKey = "_akka_grpc_plugin"
 	scalapbOptionsName              = "(scalapb.options)"
@@ -43,12 +41,6 @@ func init() {
 		&scalaLibrary{
 			kindName:        GrpcscalaLibraryRuleName,
 			ruleSuffix:      grpcScalaLibraryRuleSuffix,
-			protoFileFilter: serviceFiles,
-		})
-	protoc.Rules().MustRegisterRule("stackb:rules_proto:"+GrpcZioscalaLibraryRuleName,
-		&scalaLibrary{
-			kindName:        GrpcZioscalaLibraryRuleName,
-			ruleSuffix:      grpcZioScalaLibraryRuleSuffix,
 			protoFileFilter: serviceFiles,
 		})
 }
